@@ -1,0 +1,16 @@
+---
+
+_pip_install_packages:
+  - Cython
+  - dirhunt
+  - getsploit
+  - ldap3  
+  - mitm6
+  - minikerberos
+  - pipenv
+  - poetry
+  - python3-ldap
+  - python-libpcap
+  - pywhat
+  - requests
+  - unicorn

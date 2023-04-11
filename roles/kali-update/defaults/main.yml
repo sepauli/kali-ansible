@@ -1,0 +1,4 @@
+---
+# defaults file for kali-update
+
+apt_upgrade: "dist"

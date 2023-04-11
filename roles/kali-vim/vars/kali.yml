@@ -1,0 +1,5 @@
+---
+
+_apt:
+  - { state: "latest", name: "vim" }
+  - { state: "latest", name: "neovim" }

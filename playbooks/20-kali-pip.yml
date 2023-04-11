@@ -1,0 +1,10 @@
+---
+
+- name: 20-kali-pip-packages
+  hosts: all
+  tasks:
+    - name: include role kali-pip-packages
+      ansible.builtin.include_role:
+        name: kali-pip-packages
+      tags: kali-pip-packages
+

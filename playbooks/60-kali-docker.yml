@@ -1,0 +1,9 @@
+---
+
+- name: 60-kali-docker
+  hosts: all
+  tasks:
+    - name: include role kali-docker
+      ansible.builtin.include_role:
+        name: kali-docker
+      tags: kali-docker

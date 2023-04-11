@@ -1,0 +1,10 @@
+---
+
+- name: 30-kali-zsh
+  hosts: all
+  tasks:
+    - name: include role kali-zsh
+      ansible.builtin.include_role:
+        name: kali-zsh
+      tags: kali-zsh
+

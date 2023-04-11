@@ -1,0 +1,9 @@
+---
+
+- name: 00-kali-update
+  hosts: all
+  tasks:
+    - name: include role kali-update
+      ansible.builtin.include_role:
+        name: kali-update
+      tags: kali-update

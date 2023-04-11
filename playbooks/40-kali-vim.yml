@@ -1,0 +1,10 @@
+---
+
+- name: 40-kali-vim
+  hosts: all
+  tasks:
+    - name: include role kali-vim
+      ansible.builtin.include_role:
+        name: kali-vim
+      tags: kali-vim
+

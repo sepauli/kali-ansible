@@ -1,0 +1,29 @@
+---
+
+- name: copy templates
+  become: true
+  ansible.builtin.template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "/etc/apt/preferences.d/99-backports.pref" }
+    - { dest: "/etc/apt/preferences.d/nosnap.pref" }
+    - { dest: "/etc/apt/sources.list" }
+
+- name: apt-get update
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
+  changed_when: false
+
+- name: apt-get install
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ _apt }}"
+  register: result
+  until: result is succeeded

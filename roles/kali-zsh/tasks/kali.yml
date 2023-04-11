@@ -1,0 +1,20 @@
+---
+
+- name: apt-get install
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ _apt }}"
+  register: result
+  until: result is succeeded
+
+- name: copy templates
+  ansible.builtin.copy:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates/home/.zshrc') }}"
+    owner: "{{ item.owner | default('1000') }}"
+    group: "{{ item.group | default('1000') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "~/.zshrc" }

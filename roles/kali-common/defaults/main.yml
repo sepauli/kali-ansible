@@ -1,0 +1,6 @@
+---
+# defaults file for kali-common
+
+# Entries for sysctl.
+bootstrap_sysctl:
+  - { state: "present", name: "vm.swappiness", value: "0" }

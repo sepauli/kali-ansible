@@ -1,0 +1,44 @@
+---
+
+- name: Update package cache & dist-upgrade packages
+  become: true
+  apt:
+    upgrade: "{{ apt_upgrade }}"
+    update_cache: true
+    cache_valid_time: 3600
+    force_apt_get: true
+    autoclean: true
+
+- name: Clean apt-get
+  become: true
+  command: apt-get clean
+  changed_when: false
+  tags:
+    - skip_ansible_lint
+
+- name: Update package cache after upgrade
+  become: true
+  apt:
+    update_cache: true
+
+- name: Remove dependencies that are no longer required
+  become: true
+  ansible.builtin.apt:
+    autoremove: yes
+
+- name: Run the equivalent of "apt-get clean" as a separate step
+  become: true
+  ansible.builtin.apt:
+    clean: yes
+
+- name: Update wpscan
+  become: true
+  ignore_errors: true
+  failed_when: false
+  ansible.builtin.command: "wpscan --update"
+
+- name: Update searchsploit
+  become: true
+  ignore_errors: true
+  failed_when: false
+  ansible.builtin.command: "searchsploit --update"

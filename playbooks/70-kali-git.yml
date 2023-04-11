@@ -1,0 +1,10 @@
+---
+
+- name: 70-kali-git
+  hosts: all
+  tasks:
+    - name: include role kali-git
+      ansible.builtin.include_role:
+        name: kali-git
+      tags: kali-git
+

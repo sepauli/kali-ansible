@@ -1,0 +1,7 @@
+---
+
+_apt:
+  - { state: "latest", name: "tmux" }
+  - { state: "latest", name: "powerline" }
+  - { state: "latest", name: "fonts-powerline" }
+  - { state: "latest", name: "powerline-gitstatus" }

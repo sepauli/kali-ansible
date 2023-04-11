@@ -1,0 +1,110 @@
+---
+# tasks file for kali-git
+
+- name: include default variables
+  ansible.builtin.include_vars: "../vars/main.yml"
+
+- name: include release specific variables
+  ansible.builtin.include_vars: "{{ _loop_var }}"
+  loop: "{{ query('first_found', _params) }}"
+  loop_control:
+    loop_var: _loop_var
+  vars:
+    _params:
+      files:
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+        - "{{ ansible_distribution | lower }}.yml"
+        - "{{ ansible_os_family | lower }}-{{ ansible_distribution_version | lower }}.yml"
+        - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+        - "{{ ansible_os_family | lower }}.yml"
+        - "kali.yml"
+      paths:
+        - "../vars"
+      skip: true
+
+- name: include release specific tasks
+  ansible.builtin.include_tasks: "{{ _loop_var }}"
+  loop: "{{ query('first_found', _params) }}"
+  loop_control:
+    loop_var: _loop_var
+  vars:
+    _params:
+      files:
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+        - "{{ ansible_distribution | lower }}.yml"
+        - "{{ ansible_os_family | lower }}-{{ ansible_distribution_version | lower }}.yml"
+        - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+        - "{{ ansible_os_family | lower }}.yml"
+        - "kali.yml"
+      paths:
+        - "."
+      skip: true
+
+
+- name: Install tools from github and set permissions
+  become: true
+  block:
+  - name: Create a directory for each tool to be installed
+    ansible.builtin.file:
+      group: "{{ group }}"
+      mode: 0755
+      path: "{{ item.path }}/{{ item.dir_name }}"
+      state: directory
+    loop: "{{ _git_repos }}"
+    loop_control:
+      label: "{{ item.dir_name }}"
+
+- name: Install github tools
+  become: true
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.path }}/{{ item.dir_name }}"
+    force: true
+  loop: "{{ _git_repos }}"
+  loop_control:
+    label: "{{  item.repo  }}"
+
+- name: Set new file privileges -- recursive
+  become: true
+  ansible.builtin.file:
+    owner: "{{ group }}"
+    path: "{{ item.path }}/{{ item.dir_name }}"
+    mode: 0755
+    recurse: yes
+  loop: "{{ _git_repos }}"
+  loop_control:
+    label: "{{  item.repo  }}"
+
+
+- name: Install package dependencies
+  become: true
+  block:
+    - name: Install pip dependencies for required git repos
+      ansible.builtin.command: python3 -m pip install -r requirements.txt
+      args:
+        chdir: "{{  item.path  }}"
+      loop: "{{  _pip_install_common }}"
+      loop_control:
+        label: "{  item.path  }"
+
+- name: Ensure destination directory exists
+  become: true
+  ansible.builtin.file:
+    dest: "{{ item.dest | dirname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  loop: "{{ _misc_downloads }}"
+
+- name: Download files
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: "{{ item.mode | default('0644') }}"
+  loop: "{{ _misc_downloads }}"

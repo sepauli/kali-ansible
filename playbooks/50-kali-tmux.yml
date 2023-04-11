@@ -1,0 +1,10 @@
+---
+
+- name: 50-kali-tmux
+  hosts: all
+  tasks:
+    - name: include role kali-tmux
+      ansible.builtin.include_role:
+        name: kali-tmux
+      tags: kali-tmux
+

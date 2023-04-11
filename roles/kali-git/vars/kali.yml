@@ -1,0 +1,243 @@
+---
+#################################################
+# download compiled binaries
+#################################################
+## linux
+_misc_downloads:
+  - url: https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64
+    dest: /opt/bin/lin/pspy/pspy64
+    mode: '0755'
+  - url: https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64s
+    dest: /opt/bin/lin/pspy/pspy64s
+    mode: '0755'
+  - url: https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh
+    dest: /opt/bin/lin/peass-ng/linpeas.sh
+    mode: '0755'
+
+## windows
+  - url: https://raw.githubusercontent.com/decoder-it/psgetsystem/master/psgetsys.ps1
+    dest: /opt/bin/win/psgetsys/psgetsys.ps1
+    mode: '0755'
+  - url: https://raw.githubusercontent.com/fashionproof/EnableAllTokenPrivs/master/EnableAllTokenPrivs.ps1
+    dest: /opt/bin/win/enablealltokenprivs
+    mode: '0755'
+  - url: https://github.com/mt-code/netcat-windows/blob/master/nc.exe
+    dest: /opt/bin/win/netcat
+    mode: '0755'
+  - url: https://github.com/mt-code/netcat-windows/blob/master/nc64.exe
+    dest: /opt/bin/win/netcat
+    mode: '0755'
+  - url: https://github.com/dievus/printspoofer/raw/master/PrintSpoofer.exe
+    dest: /opt/bin/win/printspoofer
+    mode: '0755'
+
+## windows AD
+  - url: https://github.com/61106960/adPEAS/blob/main/adPEAS.ps1
+    dest: /opt/bin/win/ad/adPEAS.ps1
+    mode: '0755'
+  - url: https://github.com/61106960/adPEAS/blob/main/adPEAS-Light.ps1
+    dest: /opt/bin/win/ad/adPEAS-Light.ps1
+    mode: '0755'
+
+
+# pull git-repos
+_git_repos:
+
+  - {path: "/opt/bin/static-binaries", dir_name: "static-binaries", repo: "https://github.com/andrew-d/static-binaries.git"}
+
+#################################################
+# general
+#################################################
+## recon-tools
+  - {path: "/opt/tools/general/recon", dir_name: "hash-identifier", repo: "https://github.com/HashPals/Name-That-Hash.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "hasher", repo: "https://github.com/FortyNorthSecurity/Hasher.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "changeme", repo: "https://github.com/ztgrace/changeme"}
+  - {path: "/opt/tools/general/recon", dir_name: "defaultcredsearch", repo: "https://github.com/ihebski/DefaultCreds-cheat-sheet.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "findsploit", repo: "https://github.com/1N3/Findsploit.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "knockpy", repo: "https://github.com/guelfoweb/knock.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "censys-subdomain-finder", repo: "https://github.com/christophetd/censys-subdomain-finder.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "usernamegenerator", repo: "https://github.com/therodri2/username_generator.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "cupp", repo: "https://github.com/Mebus/cupp.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "pywhat-pcap", repo: "https://github.com/bee-san/pyWhat.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "beroot", repo: "https://github.com/AlessandroZ/BeRoot.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "keethief", repo: "https://github.com/HarmJ0y/KeeThief.git"}
+  - {path: "/opt/tools/general/recon", dir_name: "PEASS-ng", repo: "https://github.com/carlospolop/PEASS-ng.git"}
+
+## general exploits
+  - {path: "/opt/tools/general/exploits", dir_name: "payload-generator", repo: "https://github.com/g0tmi1k/msfpc.git"}
+
+
+#################################################
+# linux
+#################################################
+## reverse shells
+  - {path: "/opt/tools", dir_name: "revshellgen", repo: "https://github.com/t0thkr1s/revshellgen.git"}
+  - {path: "/opt/tools", dir_name: "shellerator", repo: "https://github.com/ShutdownRepo/shellerator.git"}
+
+## linux exploits
+  - {path: "/opt/tools/lin/exploits", dir_name: "sudo-inject", repo: "https://github.com/nongiach/sudo_inject.git"}
+  - {path: "/opt/tools/lin/exploits", dir_name: "kernel-exploits", repo: "https://github.com/lucyoa/kernel-exploits.git"}
+
+## recon-tools
+  - {path: "/opt/tools/lin/recon", dir_name: "linpeas", repo: "https://github.com/carlospolop/PEASS-ng.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "linuxsmartenumeration", repo: "https://github.com/diego-treitos/linux-smart-enumeration.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "linenum", repo: "https://github.com/rebootuser/LinEnum.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "linuxprivchecker", repo: "https://github.com/sleventyeleven/linuxprivchecker.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "rootend", repo: "https://github.com/twelvesec/rootend.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "sudokiller", repo: "https://github.com/TH3xACE/SUDO_KILLER.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "linux-exploit-suggester-2", repo: "https://github.com/jondonas/linux-exploit-suggester-2.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "linux-exploit-suggester", repo: "https://github.com/The-Z-Labs/linux-exploit-suggester" }
+  - {path: "/opt/tools/lin/recon", dir_name: "pspy", repo: "https://github.com/DominicBreuker/pspy.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "ProcDump", repo: "https://github.com/Sysinternals/ProcDump-for-Linux.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "bash-memory-dump", repo: "https://github.com/hajzer/bash-memory-dump.git"}
+  - {path: "/opt/tools/lin/recon", dir_name: "FallofSudo", repo: "https://github.com/CyberOne-Security/FallofSudo.git"}
+
+
+#################################################
+# windows
+#################################################
+## reverse shells
+
+## recon-tools
+  - {path: "/opt/tools/win/recon", dir_name: "sessiongopher", repo: "https://github.com/Arvanaghi/SessionGopher.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "windowsenum", repo: "https://github.com/absolomb/WindowsEnum.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "windows-exploit-suggester", repo: "https://github.com/AonCyberLabs/Windows-Exploit-Suggester.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "petitpotam", repo: "https://github.com/topotam/PetitPotam.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "lockless", repo: "https://github.com/GhostPack/Lockless.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "seatbelt", repo: "https://github.com/GhostPack/Seatbelt.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "safetykatz", repo: "https://github.com/GhostPack/SafetyKatz.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sharpdpapi", repo: "https://github.com/GhostPack/SharpDPAPI.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sharpdump", repo: "https://github.com/GhostPack/SharpDump.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sharpup", repo: "https://github.com/GhostPack/SharpUp.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sharpwmi", repo: "https://github.com/GhostPack/SharpWMI.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "powertools", repo: "https://github.com/PowerShellEmpire/PowerTools.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "ms17-010", repo: "https://github.com/worawit/MS17-010.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "random-ps-scripts", repo: "https://github.com/xorrior/RandomPS-Scripts.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sessiongopher", repo: "https://github.com/Arvanaghi/SessionGopher.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sharpshooter", repo: "https://github.com/mdsecactivebreach/SharpShooter.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "smtp-user-enum", repo: "https://github.com/pentestmonkey/smtp-user-enum.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "powercat", repo: "https://github.com/besimorhino/powercat.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "jaws", repo: "https://github.com/411Hall/JAWS.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "sherlock", repo: "https://github.com/rasta-mouse/Sherlock.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "wesng", repo: "https://github.com/bitsadmin/wesng.git"}
+  - {path: "/opt/tools/win/recon", dir_name: "winPE", repo: "https://github.com/carlospolop/winPE.git"}
+
+# windows AD
+  - {path: "/opt/tools/win/ad", dir_name: "bloodhound", repo: "https://github.com/fox-it/BloodHound.py.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "certi", repo: "https://github.com/zer1t0/certi.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "certipy", repo: "https://github.com/ly4k/Certipy.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "pkinittools", repo: "https://github.com/dirkjanm/PKINITtools"}
+  - {path: "/opt/tools/win/ad", dir_name: "pywhisker", repo: "https://github.com/ShutdownRepo/pywhisker.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "impacket", repo: "https://github.com/SecureAuthCorp/impacket.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "rubeus", repo: "https://github.com/GhostPack/Rubeus.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "impacket", repo: "https://github.com/SecureAuthCorp/impacket.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "impdump", repo: "https://github.com/HarmJ0y/ImpDump.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "powerupsql", repo: "https://github.com/NetSPI/PowerUpSQL.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "responder", repo: "https://github.com/SpiderLabs/Responder.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "AD-Attack-Defense", repo: "https://github.com/lucyoa/AD-Attack-Defense.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "KrbRelayUp", repo: "https://github.com/Dec0ne/KrbRelayUp.git"}
+  - {path: "/opt/tools/win/ad", dir_name: "adPEAS", repo: "https://github.com/61106960/adPEAS.git"}
+  
+
+## windows exploits
+  - {path: "/opt/tools/win/exploits", dir_name: "internal-monologue", repo: "https://github.com/eladshamir/Internal-Monologue.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "kernel-exploits", repo: "https://github.com/SecWiki/windows-kernel-exploits.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "WindowsExploits", repo: "https://github.com/abatchy17/WindowsExploits.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "SeBackupPrivilege", repo: "https://github.com/giuliano108/SeBackupPrivilege.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "juicy-potato", repo: "https://github.com/ohpe/juicy-potato.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "SweetPotato", repo: "https://github.com/CCob/SweetPotato.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "RogueWinRM", repo: "https://github.com/antonioCoco/RogueWinRM.git"}
+  - {path: "/opt/tools/win/exploits", dir_name: "PrintSpoofer", repo: "https://github.com/itm4n/PrintSpoofer.git"}
+
+
+#################################################
+# web-tools
+#################################################
+  - {path: "/opt/tools/web", dir_name: "cmsmap", repo: "https://github.com/dionach/CMSmap.git"}
+  - {path: "/opt/tools/web", dir_name: "dirsearch", repo: "https://github.com/maurosoria/dirsearch.git"}
+  - {path: "/opt/tools/web", dir_name: "quieter-firefox", repo: "https://bitbucket.org/mrbbking/quieter-firefox.git"}
+  - {path: "/opt/tools/web", dir_name: "token-reverser", repo: "https://github.com/dariusztytko/token-reverser.git"}
+  - {path: "/opt/tools/web", dir_name: "jsscanner", repo: "https://github.com/dark-warlord14/JSScanner.git"}
+  - {path: "/opt/tools/web", dir_name: "jwt_tool", repo: "https://github.com/ticarpi/jwt_tool.git"}
+  - {path: "/opt/tools/web", dir_name: "sleuthql", repo: "https://github.com/RhinoSecurityLabs/SleuthQL.git"}
+  - {path: "/opt/tools/web", dir_name: "goblyn", repo: "https://github.com/loseys/Goblyn.git"}
+  - {path: "/opt/tools/web", dir_name: "blackwidow", repo: "https://github.com/1N3/BlackWidow.git"}    
+  - {path: "/opt/tools/web", dir_name: "jwtcrack", repo: "https://github.com/Sjord/jwtcrack.git"}
+  - {path: "/opt/tools/web", dir_name: "jwtpwn", repo: "https://github.com/mazen160/jwt-pwn.git"}
+  - {path: "/opt/tools/web", dir_name: "dirsearch", repo: "https://github.com/maurosoria/dirsearch.git"}
+  - {path: "/opt/tools/web", dir_name: "kadimus", repo: "https://github.com/P0cL4bs/kadimus.git"}
+  - {path: "/opt/tools/web", dir_name: "sqlmap", repo: "https://github.com/sqlmapproject/sqlmap.git"}
+  - {path: "/opt/tools/web", dir_name: "nosqlmap", repo: "https://github.com/codingo/NoSQLMap.git"}
+  - {path: "/opt/tools/web", dir_name: "hakrawler", repo: "https://github.com/hakluke/hakrawler.git"}
+  - {path: "/opt/tools/web", dir_name: "waybackurls", repo: "https://github.com/tomnomnom/waybackurls.git"}
+  - {path: "/opt/tools/web", dir_name: "subjack", repo: "https://github.com/haccer/subjack.git"}
+
+
+#################################################
+# network-tools
+#################################################
+  - {path: "/opt/tools/net", dir_name: "chisel", repo: "https://github.com/jpillora/chisel.git"}
+  - {path: "/opt/tools/net", dir_name: "creddump7", repo: "https://github.com/CiscoCXSecurity/creddump7.git"}
+
+
+#################################################
+# c2 frameworks
+#################################################
+  - {path: "/opt/tools/c2-frameworks", dir_name: "empire", repo: "https://github.com/EmpireProject/Empire.git"}
+
+
+#################################################
+## docker
+#################################################
+  - {path: "/opt/tools/docker", dir_name: "deepce", repo: "https://github.com/stealthcopter/deepce.git"}
+  - {path: "/opt/tools/docker", dir_name: "cdk_installationdelivery", repo: "https://github.com/cdk-team/CDK.git"}
+  - {path: "/opt/tools/docker", dir_name: "amicontained", repo: "https://github.com/genuinetools/amicontained.git"}
+  - {path: "/opt/tools/docker", dir_name: "grype", repo: "https://github.com/anchore/grype.git"}
+
+
+#################################################
+## cloud
+#################################################
+  - {path: "/opt/tools/cloud", dir_name: "cloudbrute", repo: "https://github.com/0xsha/CloudBrute.git"}
+  - {path: "/opt/tools/cloud", dir_name: "aws-tools", repo: "https://github.com/carlospolop/aws_tools.git"}
+
+
+#################################################
+## oscp
+#################################################
+  - {path: "/opt/oscp", dir_name: "oscp", repo: "https://github.com/areyou1or0/OSCP.git"}
+  - {path: "/opt/oscp", dir_name: "oscp-exam-report-template-markdown", repo: "https://github.com/noraj/OSCP-Exam-Report-Template-Markdown.git"}
+  - {path: "/opt/oscp", dir_name: "windows", repo: "https://github.com/areyou1or0/Windows.git"}
+  - {path: "/opt/oscp", dir_name: "Offensive-Reverse-Shell-Cheat-Sheet", repo: "https://github.com/d4t4s3c/Offensive-Reverse-Shell-Cheat-Sheet.git"}
+  - {path: "/opt/oscp", dir_name: "OSCP-PWK-Notes-Public", repo: "https://github.com/rowbot1/OSCP-PWK-Notes-Public.git"}
+  - {path: "/opt/oscp", dir_name: "Everything-OSCP", repo: "https://github.com/rowbot1/Everything-OSCP.git"}
+  - {path: "/opt/oscp", dir_name: "OSCP-note", repo: "https://github.com/rowbot1/OSCP-note.git"}
+
+#################################################
+## tutorials
+#################################################
+  - {path: "/opt/tools/general/tutorials", dir_name: "PayloadsAllTheThings", repo: "https://github.com/carlospolop/PayloadsAllTheThings.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "pwntools-tutorial", repo: "https://github.com/carlospolop/pwntools-tutorial.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "pentest-book", repo: "https://github.com/six2dez/pentest-book.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "hackers-grimoire", repo: "https://github.com/vulp3cula/hackers-grimoire.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "oscp-notes", repo: "https://github.com/notchxor/oscp-notes.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "cybersecurity-penetration-testing", repo: "https://github.com/paulveillard/cybersecurity-penetration-testing.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "Web-Sec-CheatSheet", repo: "https://github.com/imran-parray/Web-Sec-CheatSheet.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "General-Notes", repo: "https://github.com/imran-parray/General-Notes.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "Mind-Maps", repo: "https://github.com/imran-parray/Mind-Maps.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "Linux-Priv-Esc", repo: "https://github.com/rowbot1/Linux-Priv-Esc.git"}
+  - {path: "/opt/tools/general/tutorials", dir_name: "Windows_Kernel_Sploit_List", repo: "https://github.com/rowbot1/Windows_Kernel_Sploit_List.git"}
+
+
+#################################################
+## wordlists
+#################################################
+  - {path: "/opt/wordlists", dir_name: "seclists", repo: "https://github.com/danielmiessler/SecLists.git"}
+
+
+#################################################
+## dependencies
+#################################################
+_pip_install_common: 
+  - {path: "/opt/tools/web/jwt_tool"}
+

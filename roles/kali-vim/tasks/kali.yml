@@ -1,0 +1,31 @@
+---
+
+- name: apt-get install
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ _apt }}"
+  register: result
+  until: result is succeeded
+
+- name: Ensure destination directory exists
+  ansible.builtin.file:
+    dest: "~/.config/nvim/"
+    state: directory
+    owner: "{{ item.owner | default('1000') }}"
+    group: "{{ item.owner | default('1000') }}"
+    mode: 0755
+  loop:
+    - { dest: "~/.config/nvim/" }
+
+
+- name: copy templates
+  ansible.builtin.template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates/home/.config/nvim/init.vim') }}"
+    owner: "{{ item.owner | default('1000') }}"
+    group: "{{ item.group | default('1000') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "~/.config/nvim/init.vim" }

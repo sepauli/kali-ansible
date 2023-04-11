@@ -1,0 +1,9 @@
+---
+
+- name: 10-kali-common
+  hosts: all
+  tasks:
+    - name: include role kali-common
+      ansible.builtin.include_role:
+        name: kali-common
+      tags: kali-common
